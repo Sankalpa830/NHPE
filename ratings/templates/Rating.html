@@ -1,0 +1,57 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+{% load cart %}
+{% load filters %}
+<!-- Body -->
+    <div class="container-fluid mt-3">
+    <div class="row">
+        
+        <div class="col-lg-7.8 mx-auto">
+            <div class="card mx-auto mb-3" id={{product.id}} style="width: 38rem;">
+                <img src="{{product.image.url}}" class="card-img-top" alt="...">
+                
+            </div>
+
+        </div>
+
+
+        <!-- all products-->
+        <div id="products" class="col-lg-5.2 mx-auto">
+
+            <div class="row mx-auto">
+                <div class="card mx-auto mb-3" id={{product.id}} style="width: 22rem;">
+                    <div class="card-body">
+                        <h2 class="card-title shak">{{product.name}}</h2>
+                        <p class="card-text price"><b>{{product.price|rupees}}</b></p>
+                        <h3>Rate Product</h3>
+                        <br>
+                        <form class="rate-form"  method="POST" id="{{product.id}}">
+                            {% csrf_token %}
+                            <button class="fa fa-star my-btn" id="first"></button>
+                            <button class="fa fa-star my-btn" id="second"></button>
+                            <button class="fa fa-star my-btn" id="third"></button>
+                            <button class="fa fa-star my-btn" id="fourth"></button>
+                            <button class="fa fa-star my-btn" id="fifth"></button>
+                        </form>
+                        
+                        <br>
+                        <p class="card-text" >
+                            <b>
+                                <div id="confirm-box"></div>
+                            </b>
+                        </p>
+                        
+                        
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+</div>
+
+
+
+{% endblock %}

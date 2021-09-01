@@ -1,0 +1,55 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+{% load cart %}
+{% load filters %}
+
+<div class="container">
+    <div class="border rounded p-4 m-4">
+        <p class="display-3 pl-4 ml-4" style="font-weight: 500; color: #3297a8;">Your Orders</p>
+        <hr>
+        <table class="table">
+            <thead class="table1">
+                <tr>
+                    <th>Sn.</th>
+                    <th>Image</th>
+                    <th>Product</th>
+                    <th>Price</th>
+                    <th>Quantity</th>
+                    <th>Total</th>
+                    <th>Date</th>
+                    <th>Status</th>
+                    
+                </tr>
+            </thead>
+            <tbody>
+                {% for order in orders %}
+                <tr>
+                    {% if order.status == False %}
+                        <td>{{forloop.counter}}</td>
+                        <td><img style= "height: 80px;" class="rounded-circle" src="{{order.product.image.url}}" alt=""></td>
+                        <td>{{order.product.name}}</td>
+                        <td>{{order.price|rupees}}</td>
+                        <td>{{order.quantity}}</td>
+                        <td>{{order.quantity|total:order.price|rupees}}</td>
+                        <td>{{order.date}}</td>
+                        {% if order.status %}
+                        <td><small class="badge badge-success">Delivered</small> </td>
+                        {% else %}
+                        <td><small class="badge badge-warning">Pending</small> </td>
+                        {% endif %}
+                    {% endif %}
+
+                    
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>
+
+
+
+
+
+{% endblock %}

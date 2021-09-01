@@ -1,0 +1,48 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+{% load cart %}
+{% load filters %}
+<!-- Body -->
+<div class="container-fluid mt-3">
+    <div class="row">
+
+        <!-- filter-->
+        <div class="col-lg-3 mx-auto">
+
+            <div class="list-group">
+                <a href="/" class="list-group-item list-group-item-action">All Products </a>
+
+                {% for category in categories %}
+                <a href="/?category={{category.id}}" class="list-group-item list-group-item-action">{{category.name}}</a>
+                {% endfor %}
+            </div>
+
+        </div>
+
+        <!-- all products-->
+        <div id="products" class="col-lg-9 mx-auto">
+            <div class="row mx-auto" >
+                {% for product in products %}
+
+                <div class="card mx-auto mb-3" id={{product.id}} style="width: 18rem;">
+                    <a href="/description/{{product.id}}" class="image-box">
+                        <img src="{{product.image.url}}" class="card-img-top" alt="...">
+                    </a>
+                    <div class="card-body">
+                        <a href="/description/{{product.id}}">
+                        <h5 class="card-title"><p class="card-name">{{product.name}}</p></h5>
+                        </a>
+                        <p class="card-text"><b>{{product.price|rupees}}</b></p>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+
+
+

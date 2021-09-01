@@ -1,0 +1,93 @@
+.navbar{
+    position:fixed;
+    width: 100%;
+    z-index: 1;
+    background-color: #3297a8;
+}
+
+a {
+    color: white;
+}
+
+ul li a:hover{
+    color: whitesmoke;
+}
+
+.list-group-item {
+    background-color: #3297a8;
+    color: white;
+
+}
+.list-group-item:hover{
+    background-color: #036172;
+    color: white;
+    
+}
+.card-body h5 {
+    background-color: white;
+    color: black;
+
+}
+.card-title p:hover{
+    text-decoration: none;
+    color: black;
+}
+.nav23:hover{
+    color: white;
+}
+
+.card a:hover {
+    text-decoration: none;
+    display: block;
+}
+.image-box{
+    overflow: hidden;
+    position: relative;
+}
+.image-box .card-img-top:hover {
+    transform: scale(1.1);
+    overflow: hidden;    
+    transition: .5s;
+}
+
+/* .card-name:hover {
+    color: #09515e !important;
+} */
+.checked {
+    color: red;
+  }
+.shak{
+    font-weight: bold;
+    color: #3297a8;
+}
+.price{
+    font-size: 25px;
+}
+
+.desc{
+    font-weight: 200;
+}
+.my-btn{
+    background-color: inherit;
+    border:0 ;
+    
+}
+
+.table1{
+    color: white;
+    background-color: #3297a8;
+}
+
+.ratingp{
+    color: black;
+}
+
+.table2 a {
+    color: black;
+}
+
+.table2 a:hover {
+    text-decoration: none;
+    font-weight: 500;
+    color: chocolate;
+}

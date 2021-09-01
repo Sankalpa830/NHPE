@@ -1,0 +1,60 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+
+<div class="container">
+    <div class="p-4 m-4">
+        <div class="col-lg-5 mx-auto">
+        <h1 class="alert alert-light " style="color: #3297a8; text-align:center ;"> Create An Account</h1>
+        </div>
+         <div class="col-lg-5 mx-auto border rounded pt-4">
+            <form action="/accounts/signup" method="POST">
+                {% csrf_token %}
+                {% if error %}
+                <div class="alert alert-danger" role="alert">
+                    {{error}}
+                </div>
+                {% endif %}
+                <!--firstname-->
+                <div class="form-group">
+                    <label for="">First Name</label>
+                    <input type="text" name="firstname" id="" value="{{values.first_name}}" class="form-control form-control-sm" placeholder="" aria-describedby="helpId">
+                  </div>
+                <!--lastname-->
+                <div class="form-group">
+                    <label for="">Last Name</label>
+                    <input type="text" name="lastname" id="" value="{{values.last_name}}" class="form-control form-control-sm" placeholder="" aria-describedby="helpId">
+                  </div>
+                <!--contactnumber-->
+                <div class="form-group">
+                    <label for="">Contact Number</label>
+                    <input type="number" name="contactnumber" id="" value="{{values.contact_number}}"class="form-control form-control-sm" placeholder="" aria-describedby="helpId">
+                  </div>
+                <!--email-->
+                <div class="form-group">
+                  <label for="">Email</label>
+                  <input required type="email" name="email" id="" value="{{values.email}}"class="form-control form-control-sm" placeholder="" aria-describedby="helpId">
+                </div>
+                <!--password-->
+                <div class="form-group">
+                    <label for="">Password</label>
+                    <input type="password" name="password" class="form-control form-control-sm" placeholder="" aria-describedby="helpId">
+                </div>
+                <!--Confirm Password-->
+                <div class="form-group">
+                  <label for="">Confirm Password</label>
+                  <input type="password" name="c_password"  class="form-control form-control-sm" placeholder="" aria-describedby="helpId">
+                </div>
+                <div class="form-group">
+                    <input class="btn btn-md btn-info" type="submit" value="Sign Up">
+                </div>
+
+            </form>
+        </div>
+
+    </div>
+</div>
+
+
+{% endblock %}
